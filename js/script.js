@@ -1,8 +1,10 @@
 const swiper = new Swiper('.mySwiper', {
-  speed: 1000,
+  speed: 1200,
   parallax: true,
   loop: true,
-  grabCursor: true,
+  keyboard: {
+    enabled: true
+  },
 
   pagination: {
     el: '.swiper-pagination',
