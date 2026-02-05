@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anime Universe - Dynamic Parallax</title>
+  <title>Dynamic Parallax</title>
+
   <link rel="stylesheet" href="./css/swiper-bundle.min.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <main>
     <div class="slider-wrapper">
-      <section class="slider-container swiper mySwiper">
+      <section class="slider-container swiper mySwiper" aria-label="Recent Anime Showcase">
         <div class="swiper-wrapper">
 
           <article class="card swiper-slide" data-anime-id="50923">
@@ -19,14 +23,14 @@
             <div class="card__content">
               <h2 class="card__name" data-swiper-parallax="-300">The Apothecary Diaries</h2>
               <div class="card__rating" data-swiper-parallax="-250">
-                <span class="stars">★★★★★</span>
-                <span class="score">...</span>
+                <span class="stars" aria-hidden="true">★★★★★</span>
+                <span class="score" aria-label="Rating score">...</span>
               </div>
               <div class="card__description-wrapper" data-swiper-parallax="-200">
                 <p class="card__description">A former apothecary is kidnapped and sold into service at the Emperor's palace.</p>
                 <div class="card__tooltip">Maomao uses her knowledge of medicine to solve mysteries within the Inner Court.</div>
               </div>
-              <a href="#" class="card__btn" data-swiper-parallax="-150">Explore</a>
+              <a href="#" class="card__btn" data-swiper-parallax="-150" aria-label="Explore The Apothecary Diaries">Explore</a>
             </div>
           </article>
 
@@ -35,14 +39,14 @@
             <div class="card__content">
               <h2 class="card__name" data-swiper-parallax="-300">Frieren: Beyond Journey's End</h2>
               <div class="card__rating" data-swiper-parallax="-250">
-                <span class="stars">★★★★★</span>
+                <span class="stars" aria-hidden="true">★★★★★</span>
                 <span class="score">...</span>
               </div>
               <div class="card__description-wrapper" data-swiper-parallax="-200">
                 <p class="card__description">An elven mage explores the meaning of time and human connections.</p>
                 <div class="card__tooltip">A journey to understand the hearts of the humans Frieren has outlived.</div>
               </div>
-              <a href="#" class="card__btn" data-swiper-parallax="-150">Explore</a>
+              <a href="#" class="card__btn" data-swiper-parallax="-150" aria-label="Explore Frieren">Explore</a>
             </div>
           </article>
 
@@ -51,14 +55,14 @@
             <div class="card__content">
               <h2 class="card__name" data-swiper-parallax="-300">Hell's Paradise</h2>
               <div class="card__rating" data-swiper-parallax="-250">
-                <span class="stars">★★★★☆</span>
+                <span class="stars" aria-hidden="true">★★★★☆</span>
                 <span class="score">...</span>
               </div>
               <div class="card__description-wrapper" data-swiper-parallax="-200">
                 <p class="card__description">A ninja on death row travels to a mysterious island to find the Elixir of Life.</p>
-                <div class="card__tooltip">Gabimaru must face nightmares and rival convicts to earn his pardon.</div>
+                <div class="card__tooltip">Gabimaru must face nightmares to earn his pardon.</div>
               </div>
-              <a href="#" class="card__btn" data-swiper-parallax="-150">Explore</a>
+              <a href="#" class="card__btn" data-swiper-parallax="-150" aria-label="Explore Hell's Paradise">Explore</a>
             </div>
           </article>
 
@@ -67,14 +71,14 @@
             <div class="card__content">
               <h2 class="card__name" data-swiper-parallax="-300">Campfire Cooking in Another World</h2>
               <div class="card__rating" data-swiper-parallax="-250">
-                <span class="stars">★★★★☆</span>
+                <span class="stars" aria-hidden="true">★★★★☆</span>
                 <span class="score">...</span>
               </div>
               <div class="card__description-wrapper" data-swiper-parallax="-200">
-                <p class="card__description">A salaryman is summoned to a fantasy world with a "Online Grocery" skill.</p>
+                <p class="card__description">A salaryman is summoned to a fantasy world with an "Online Grocery" skill.</p>
                 <div class="card__tooltip">Mukoda survives his isekai life through the power of modern cooking.</div>
               </div>
-              <a href="#" class="card__btn" data-swiper-parallax="-150">Explore</a>
+              <a href="#" class="card__btn" data-swiper-parallax="-150" aria-label="Explore Campfire Cooking">Explore</a>
             </div>
           </article>
 
@@ -83,22 +87,22 @@
             <div class="card__content">
               <h2 class="card__name" data-swiper-parallax="-300">SPY x FAMILY</h2>
               <div class="card__rating" data-swiper-parallax="-250">
-                <span class="stars">★★★★★</span>
+                <span class="stars" aria-hidden="true">★★★★★</span>
                 <span class="score">...</span>
               </div>
               <div class="card__description-wrapper" data-swiper-parallax="-200">
                 <p class="card__description">A spy, an assassin, and a telepath form a fake family to maintain world peace.</p>
-                <div class="card__tooltip">Loid Forger balances high-stakes missions with the challenges of fatherhood.</div>
+                <div class="card__tooltip">Loid Forger balances missions with the challenges of fatherhood.</div>
               </div>
-              <a href="#" class="card__btn" data-swiper-parallax="-150">Explore</a>
+              <a href="#" class="card__btn" data-swiper-parallax="-150" aria-label="Explore Spy x Family">Explore</a>
             </div>
           </article>
 
         </div>
 
         <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev" role="button" aria-label="Previous slide"></div>
+        <div class="swiper-button-next" role="button" aria-label="Next slide"></div>
       </section>
     </div>
   </main>

@@ -1,47 +1,56 @@
-const swiper = new Swiper('.mySwiper', {
-  speed: 1400,
-  parallax: true,
-  loop: true,
-  keyboard: {
-    enabled: true
-  },
-  grabCursor: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  }
-});
+const initAnimeExperience = () => {
+  const swiper = new Swiper('.mySwiper', {
+    speed: 1400,
+    parallax: true,
+    loop: true,
+    grabCursor: true,
+    keyboard: {
+      enabled: true
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 
-async function fetchRatings() {
-  const slides = document.querySelectorAll('.swiper-slide[data-anime-id]');
+  const fetchAnimeRatings = async () => {
+    const slides = document.querySelectorAll('.swiper-slide[data-anime-id]');
 
-  for (const slide of slides) {
-    const animeId = slide.dataset.animeId;
-    const scoreElement = slide.querySelector('.score');
+    const fetchPromises = Array.from(slides).map(async (slide, index) => {
+      const animeId = slide.dataset.animeId;
+      const scoreElement = slide.querySelector('.score');
 
-    try {
-      const response = await fetch(`https://api.jikan.moe/v4/anime/${animeId}`);
-      const result = await response.json();
+      try {
+        await new Promise(resolve => setTimeout(resolve, index * 800));
 
-      if (result.data && result.data.score) {
-        scoreElement.textContent = result.data.score;
-        scoreElement.style.opacity = "1";
-      } else {
-        scoreElement.textContent = "N/A";
-        scoreElement.style.opacity = "1";
+        const response = await fetch(`https://api.jikan.moe/v4/anime/${animeId}`);
+
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const { data } = await response.json();
+
+        if (data && data.score) {
+          scoreElement.textContent = data.score.toFixed(2);
+          scoreElement.style.opacity = "1";
+        } else {
+          scoreElement.textContent = "N/A";
+          scoreElement.style.opacity = "0.7";
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch rating for ID ${animeId}:`, error);
+        scoreElement.textContent = "—";
+        scoreElement.style.opacity = "0.5";
       }
-    } catch (error) {
-      console.error("Error fetching MAL score:", error);
-      scoreElement.textContent = "Err";
-      scoreElement.style.opacity = "1";
-    }
+    });
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
-  }
-}
+    await Promise.all(fetchPromises);
+  };
 
-window.addEventListener('load', fetchRatings);
+  fetchAnimeRatings();
+};
+
+document.addEventListener('DOMContentLoaded', initAnimeExperience);

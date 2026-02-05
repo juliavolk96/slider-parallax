@@ -2,7 +2,8 @@
   --primary-color: #ffffff;
   --accent-color: #d4a373;
   --star-color: #ffcc00;
-  --transition: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-speed: 0.8s;
+  --transition-curve: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 *,
@@ -19,6 +20,7 @@ body {
   color: #fff;
   min-height: 100dvh;
   overflow: hidden;
+  line-height: 1.5;
 }
 
 .slider-wrapper {
@@ -36,8 +38,8 @@ body {
 
 .parallax-bg {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 130%;
   height: 100%;
   background-size: cover;
@@ -72,11 +74,11 @@ body {
 }
 
 .card__name {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
   font-weight: 600;
-  margin-bottom: 10px;
   line-height: 1.1;
-  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
 }
 
 .card__rating {
@@ -93,21 +95,21 @@ body {
 }
 
 .score {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 2px 10px;
-  border-radius: 4px;
+  padding: 3px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 0.9rem;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: opacity 0.5s ease;
+  font-size: 0.95rem;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
 .card__description {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 35px;
 }
 
 .card__description-wrapper {
@@ -116,56 +118,64 @@ body {
 
 .card__tooltip {
   position: absolute;
-  bottom: 110%;
+  bottom: 115%;
   left: 0;
   width: 320px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.95);
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.98);
   color: #1a1a1a;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 0.9rem;
+  line-height: 1.4;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transition: 0.3s ease;
-  z-index: 10;
-  pointer-events: none;
+  transition: transform 0.3s ease,
+              opacity 0.3s ease;
+  z-index: 20;
 }
 
 .card__description-wrapper:hover .card__tooltip {
   opacity: 1;
   visibility: visible;
+  transform: translateY(-5px);
 }
 
 .card__btn {
   display: inline-block;
-  padding: 15px 40px;
+  padding: 16px 45px;
   border: 2px solid var(--accent-color);
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  letter-spacing: 1px;
   text-transform: uppercase;
-  transition: 0.3s;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
 }
 
 .card__btn:hover {
   background: var(--accent-color);
   color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 163, 115, 0.3);
 }
 
 .swiper-pagination-bullet {
   background: #fff;
+  opacity: 0.4;
 }
 
 .swiper-pagination-bullet-active {
   background: var(--accent-color);
+  opacity: 1;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
   color: #fff;
-  opacity: 0.5;
-  transition: 0.3s;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 
 .swiper-button-next:hover,
